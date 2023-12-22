@@ -46,34 +46,7 @@ variable "jenkins_jobs" {
     }))
   }))
   default = [
-    {
-      name               = "doug"
-      jenkins_automation = "oracle_linux_database"
-      job_urls = [{
 
-        job_url  = "http:doug"
-        params   = ["yesy=yes", "non=no"]
-        token    = "eframfw"
-        user     = "afenfksjdnf"
-        job_name = "linux_baseline"
-
-
-        },
-        {
-
-          "job_url" = "http:cat"
-          "params"  = ["yesy=wadf", "non=nfqwfe"]
-          "token"   = "eframfw"
-          "user"    = "afenfksjdnf"
-          job_name  = "ddboost"
-
-
-        }
-
-
-      ]
-
-    }
   ]
   description = "Location of the resource group."
 }
