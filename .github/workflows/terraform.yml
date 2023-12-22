@@ -1,4 +1,4 @@
-# This workflow installs the latest version of Terraform CLI and configures the Terraform CLI configuration file
+#  This workflow installs the latest version of Terraform CLI and configures the Terraform CLI configuration file
 # with an API token for Terraform Cloud (app.terraform.io). On pull request events, this workflow will run
 # `terraform init`, `terraform fmt`, and `terraform plan` (speculative plan via Terraform Cloud). On push events
 # to the "main" branch, `terraform apply` will be executed.
@@ -101,7 +101,7 @@ jobs:
     - name: Terraform Plan
       run: |
 
-        echo "${{ github.event.inputs.jenkins_list }}"
+        echo Hekkkidsfiowars "${{ github.event.inputs.jenkins_list }}"
         terraform plan -var=jenkins_list="${{ github.event.inputs.jenkins_list }}"
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
