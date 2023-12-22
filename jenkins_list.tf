@@ -3,13 +3,13 @@ resource "null_resource" "jenkins_job_1" {
 
 
 
- for_each = {for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[0].job_name}" => o 
- if o.jenkins_automation != null 
- }
+  for_each = { for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[0].job_name}" => o
+    if o.jenkins_automation != null
+  }
 
-    provisioner "local-exec" {
+  provisioner "local-exec" {
     interpreter = ["/bin/sh", "-c"]
-    command = <<heredoc
+    command     = <<heredoc
 
     
     echo ${each.value.jenkins_automation[0].job_name}
@@ -17,8 +17,8 @@ resource "null_resource" "jenkins_job_1" {
     echo job finished
      
      heredoc
-  
-}
+
+  }
 }
 
 resource "null_resource" "jenkins_job_2" {
@@ -28,13 +28,13 @@ resource "null_resource" "jenkins_job_2" {
 
 
 
- for_each = {for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[1].job_name}" => o 
- if o.number_of_jobs > 1
- }
+  for_each = { for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[1].job_name}" => o
+    if o.number_of_jobs > 1
+  }
 
-    provisioner "local-exec" {
+  provisioner "local-exec" {
     interpreter = ["/bin/sh", "-c"]
-    command = <<heredoc
+    command     = <<heredoc
 
     
     echo ${each.value.jenkins_automation[1].job_name}
@@ -42,8 +42,8 @@ resource "null_resource" "jenkins_job_2" {
     echo job finished
      
      heredoc
-  
-}
+
+  }
 }
 
 
@@ -54,13 +54,13 @@ resource "null_resource" "jenkins_job_3" {
 
 
 
- for_each = {for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[2].job_name}" => o 
- if o.number_of_jobs > 2
- }
+  for_each = { for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[2].job_name}" => o
+    if o.number_of_jobs > 2
+  }
 
-    provisioner "local-exec" {
+  provisioner "local-exec" {
     interpreter = ["/bin/sh", "-c"]
-    command = <<heredoc
+    command     = <<heredoc
 
     
     echo ${each.value.jenkins_automation[2].job_name}
@@ -68,6 +68,6 @@ resource "null_resource" "jenkins_job_3" {
     echo job finished
      
      heredoc
-  
-}
+
+  }
 }
