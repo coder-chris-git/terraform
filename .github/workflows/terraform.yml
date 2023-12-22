@@ -49,9 +49,13 @@ name: 'Terraform'
 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
+  workflow_dispatch:
+  inputs:
+    jenkins_list: 
+     required: true
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
 
 permissions:
   contents: read
