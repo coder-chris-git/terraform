@@ -51,9 +51,9 @@ name: 'Terraform'
 on:
   workflow_dispatch:
     inputs:
-      type: string
       jenkins_list: 
-      required: true
+        type: string
+        required: true
   # push:
   #   branches: [ "main" ]
   # pull_request:
