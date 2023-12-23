@@ -96,9 +96,7 @@ jobs:
     - name: Terraform Plan
       run: |
         
-        foo="'"
-        jenkins_list=${foo// /'"'}
-        terraform plan -var=jenkins_list="$jenkins_list"
+        echo $new"${{ github.event.inputs.jenkins_list }}" | sed s/"'"/'"'/g
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
