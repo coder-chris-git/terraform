@@ -100,7 +100,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
-
+        echo "${{ github.event.inputs.jenkins_list }}"
         terraform plan -var="${{ github.event.inputs.jenkins_list }}"
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
