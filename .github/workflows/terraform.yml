@@ -97,7 +97,7 @@ jobs:
       run: |
         
         foo="'"
-        jenkins_list=${foo// /"}
+        jenkins_list=${foo// /'"'}
         terraform plan -var=jenkins_list="$jenkins_list"
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
