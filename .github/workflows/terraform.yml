@@ -95,7 +95,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
-        jenkins_list='"${{ github.event.inputs.jenkins_list }}"'
+        jenkins_list="${{ github.event.inputs.jenkins_list }}"
 
         echo $jenkins_list
       
