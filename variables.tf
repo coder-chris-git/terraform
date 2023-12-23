@@ -91,7 +91,7 @@ variable "jenkins_list" {
       user     = optional(string)
 
 
-    })), null)
+    })))
   }))
   default = [
     {
