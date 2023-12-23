@@ -91,11 +91,7 @@ variable "jenkins_list" {
 
         }
       ]
-    },
-
-    {
-      name = "server1"
-
+    
 
 
 
