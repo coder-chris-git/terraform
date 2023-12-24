@@ -46,9 +46,12 @@ name: 'Terraform'
 
 
 on:
-  repository_dispatch:
-    types: [build]
-
+  workflow_dispatch:
+  
+    inputs:
+      jenkins_list: 
+    
+        required: true
   # push:
   #   branches: [ "main" ]
   # pull_request:
