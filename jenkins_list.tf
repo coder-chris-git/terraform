@@ -25,7 +25,7 @@ resource "null_resource" "jenkins_job_2" {
 
 
 
-  for_each = { for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[1].job_name}" => o
+  for_each = { for host, o in var.jenkins_list_1 : "${o.name}_${o.jenkins_automation[1].job_name}" => o
     if o.number_of_jobs > 1
   }
 
@@ -51,7 +51,7 @@ resource "null_resource" "jenkins_job_3" {
 
 
 
-  for_each = { for host, o in var.jenkins_list : "${o.name}_${o.jenkins_automation[2].job_name}" => o
+  for_each = { for host, o in var.jenkins_list_1 : "${o.name}_${o.jenkins_automation[2].job_name}" => o
     if o.number_of_jobs > 2
   }
 
