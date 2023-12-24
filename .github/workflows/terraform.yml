@@ -50,6 +50,7 @@ on:
   
     inputs:
       jenkins_list: 
+        type: list
     
         required: true
   # push:
