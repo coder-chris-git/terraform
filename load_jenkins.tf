@@ -1,21 +1,7 @@
-# locals {
-#   nestedlist = flatten([for key, jenkins_job in var.jenkins_jobs : [
-#     for sub_key, job in jenkins_job.job_urls :
-#     {
-#       name               = jenkins_job.name,
-#       jenkins_automation = jenkins_job.jenkins_automation
-#       job_url            = job.job_url,
-#       params             = job.params,
-#       token              = job.token,
-#       user               = job.user
-#       index              = sub_key
-#       job_name           = job.job_name
-#     }
-#     ]
-#     ]
+locals {
 
-#   )
-# }
+  json_l = jsondecode(var.jenkins_list_1)
+}
 
 # resource "null_resource" "oracle_linux_database" {
 
@@ -50,7 +36,7 @@
 
 resource "null_resource" "oracle_linux_databasWQe" {
 
-  for_each = { for i, o in var.jenkins_list : "${i}" => o
+  for_each = { for i, o in local.json_l : "${i}" => o
 
   }
 
