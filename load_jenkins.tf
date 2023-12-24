@@ -1,6 +1,6 @@
 locals {
 
-  json_l = jsondecode(var.jenkins_list_1)
+  # json_l = jsondecode(var.jenkins_list_1)
 }
 
 # resource "null_resource" "oracle_linux_database" {
@@ -36,7 +36,7 @@ locals {
 
 resource "null_resource" "oracle_linux_databasWQe" {
 
-  for_each = { for i, o in local.json_l : "${i}" => o
+  for_each = { for i, o in var.jenkins_list_1 : "${i}" => o
 
   }
 
