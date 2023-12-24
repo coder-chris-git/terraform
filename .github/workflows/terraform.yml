@@ -88,7 +88,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: 'echo "payload: ${{ toJson(github.event.client_payload.jenkins_list) }}"'
+      run: 'echo "payload: ${{ fromJson(github.event.client_payload.jenkins_list) }}"'
      
     - run: terraform plan -var=jenkins_list_1="${{ github.event.client_payload.jenkins_list }}"
 
