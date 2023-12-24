@@ -49,8 +49,7 @@ on:
   workflow_dispatch:
   
     inputs:
-      jenkins_list: 
-        type: list
+      jenkins_list:
     
         required: true
   # push:

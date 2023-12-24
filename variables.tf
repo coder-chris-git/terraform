@@ -78,7 +78,7 @@ variable "jenkins_jobs" {
   description = "Location of the resource group."
 }
 
-variable "jenkins_list" {
+variable "jenkins_list_1" {
   type = list(object({
     name           = string
     number_of_jobs = optional(number, 0)
@@ -122,4 +122,66 @@ variable "jenkins_list" {
 
   ]
   description = "Location of the resource group."
+}
+
+variable "jenkins_list" {
+  type = map(any)
+  default = {
+
+    "server1" = {
+      job            = "job1"
+      params         = ["hey", "dude"]
+      number_of_jobs = 2
+      token          = "usertoken"
+      user           = "jenkins_user"
+      jenkins_automation = [
+        {
+          job_url  = "job1_url"
+          index    = 0
+          job_name = "first_job_name"
+          params   = ["first=first_param1", "second=first_param2"]
+
+        },
+
+        {
+          job_url  = "secondurl"
+          job_name = "second_job_name"
+          params   = ["first=first_param2", "second=second_param2"]
+          token    = "token2"
+          index    = 1
+          user     = "second"
+
+        }
+      ]
+    }
+    "server2" = {
+      job            = "jon2"
+      params         = ["fesdk", "awruih"]
+      number_of_jobs = 2
+      token          = "usertwqreroken"
+      user           = "jenkewqrrins_user"
+      jenkins_automation = [
+        {
+          job_url  = "job2_url"
+          index    = 0
+          job_name = "fsecondjob_name"
+          params   = ["first=firsqeaweat_param1", "seconeqwrawd=first_param2"]
+
+        },
+
+        {
+          job_url  = "secondurl"
+          job_name = "second_job_name"
+          params   = ["first=first_param2", "second=second_param2"]
+          token    = "token2"
+          index    = 1
+          user     = "second"
+
+        }
+      ]
+    }
+
+
+  }
+
 }
