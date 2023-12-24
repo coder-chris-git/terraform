@@ -47,11 +47,13 @@ name: 'Terraform'
 
 on:
   workflow_dispatch:
-  
     inputs:
       jenkins_list:
+<<<<<<< HEAD
         default: {}
         required: true
+=======
+>>>>>>> 3f045dd4a48d6bb432bd69903c11f2b8517a2ee3
   # push:
   #   branches: [ "main" ]
   # pull_request:
