@@ -50,7 +50,7 @@ on:
   
     inputs:
       jenkins_list:
-    
+        default: {}
         required: true
   # push:
   #   branches: [ "main" ]
