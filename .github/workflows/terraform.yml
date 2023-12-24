@@ -53,7 +53,7 @@ on:
     inputs:
       jenkins_list: 
         type: string
-        required: true
+        required: object
   # push:
   #   branches: [ "main" ]
   # pull_request:
@@ -94,7 +94,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
-        $jenkins_list=echo "${{ github.event.inputs.jenkins_list }}" | sed s/"'"/'"'/g
+        echo "${{ github.event.inputs.jenkins_list }}" | sed s/"'"/'"'/g |$jenkins_list
         $jenkins_list
         terraform plan -var=jenkins_list=$jenkins_list
 
