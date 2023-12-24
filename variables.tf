@@ -153,7 +153,7 @@ variable "jenkins_list" {
 
         }
       ]
-    }
+    },
     "server2" = {
       job            = "jon2"
       params         = ["fesdk", "awruih"]
