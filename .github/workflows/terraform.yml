@@ -86,7 +86,7 @@ jobs:
        
     - uses: actions/labeler@v4
       with:
-        repo-token: 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
+        repo-token: ${{ secrets.REPO_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -100,7 +100,7 @@ jobs:
 
     - name: Create file
       run: |
-        echo the key ${{ secrets.DEPLOY_KEY }}
+        echo the key ${{ secrets.REPO_TOKEN}}
         touch spoke1.tf
         printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
 
