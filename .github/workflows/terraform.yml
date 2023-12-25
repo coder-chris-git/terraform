@@ -82,7 +82,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-        github_token: ${{ secrets.REPO_TOKEN }}
+        github_token: ${{ secrets.ssh }}
 
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
@@ -103,8 +103,10 @@ jobs:
 
     - name: check for changes
       run: |
+       
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
+        git remote set-url origin ${{ secrets.ssh }}
         git status
     - name: stage changed files
       run: git add .
