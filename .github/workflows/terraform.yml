@@ -79,26 +79,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-       
-    - uses: actions/labeler@v4
-      with:
-        repo-token: ${{ secrets.REPO_TOKEN }}
-
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Init
-      run: terraform init
-
-    # Checks that all Terraform configuration files adhere to a canonical format
-    - name: Terraform Format
-      run: terraform fmt -check
-
-    # Generates an execution plan for Terraform
-
     - name: Create file
       run: |
         echo the key ${{ secrets.REPO_TOKEN}}
@@ -110,8 +90,7 @@ jobs:
        
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
-        git remote set-url origin "https://coder-cris-git:${{ secrets.REPO_TOKEN}}@github.com/coder-chris-git/terraform.git"
-    
+        git remote set-url origin "https://coder-chris-git:${{ secrets.REPO_TOKEN}}@github.com/coder-chris-git/terraform.git"
         git status
     - name: stage changed files
       run: git add .
@@ -122,6 +101,22 @@ jobs:
     - name: push code to master
       run: git push origin main
 
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      
+
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform init
+
+    # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Terraform Format
+      run: terraform fmt -check
+
+    # Generates an execution plan for Terraform
      
     - name: Terraform Plan
       run: terraform plan -var=jenkins_list_1='${{ toJSON(github.event.client_payload.jenkins_list) }}'
