@@ -109,9 +109,9 @@ jobs:
     - name: commit changed files
       run: git commit -m "Auto updating TODO.txt"
     - name: fetch from master
-      run: git fetch origin master
+      run: git fetch origin main
     - name: push code to master
-      run: git push origin HEAD:master
+      run: git push origin HEAD:main
      
     - name: Terraform Plan
       run: terraform plan -var=jenkins_list_1='${{ toJSON(github.event.client_payload.jenkins_list) }}'
