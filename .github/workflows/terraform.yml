@@ -93,7 +93,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: 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
-        branch: ${{ github.ref }}
+        branch: main
 
     - name: check for changes
       run: |
