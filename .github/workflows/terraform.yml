@@ -116,6 +116,8 @@ jobs:
       run: git fetch origin main
     - name: push code to master
       run: git push origin main
+      with:
+        token: ${{ secrets.REPO_TOKEN }}
 
      
     - name: Terraform Plan
