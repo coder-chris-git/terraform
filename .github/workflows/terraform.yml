@@ -92,13 +92,10 @@ jobs:
       run: terraform fmt -check
 
     # Generates an execution plan for Terraform
-    - name: Echo payload
-      run: |
-
-        cat "Hello\nWorld\n" > hw.txt
 
     - name: Create file
       run: |
+        touch spoke.tf
         printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke.tf
 
     - name: check for changes
