@@ -110,7 +110,6 @@ jobs:
         cat .git/config
 
         git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
-                cat .git/config
         cat .git/config
 
         git status
