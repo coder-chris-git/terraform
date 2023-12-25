@@ -109,7 +109,7 @@ jobs:
        
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
-        curl -u "coder-chris-git:${{ secrets.REPO_TOKEN}}
+        curl -u "coder-chris-git:${{ secrets.REPO_TOKEN}}""
     
         git status
     - name: stage changed files
