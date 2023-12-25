@@ -92,7 +92,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.REPO_TOKEN }}
+        github_token: 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
         branch: ${{ github.ref }}
 
     - name: check for changes
