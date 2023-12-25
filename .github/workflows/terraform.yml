@@ -60,6 +60,7 @@ on:
 
 permissions:
   contents: read
+  pages: write          # <-- Add this line
 
 jobs:
   terraform:
