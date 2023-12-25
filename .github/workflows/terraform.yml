@@ -92,7 +92,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: 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
+        github_token: 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
         branch: main
 
     - name: check for changes
@@ -102,7 +102,7 @@ jobs:
         git config --global user.name "coder-chris-git"
         cat .git/config
 
-        git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
+        git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
         cat .git/config
 
         git status
