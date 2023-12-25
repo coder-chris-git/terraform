@@ -99,7 +99,7 @@ jobs:
 
     - name: Create file
       run: |
-        printf '${{ toJSON(github.event.client_payload.jenkins_list)' > spoke.tf
+        printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke.tf
 
     - name: check for changes
       run: git status
