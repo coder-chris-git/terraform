@@ -85,7 +85,7 @@ jobs:
 
     - name: Create file
       run: |
-        echo the key ${{ secrets.REPO_TOKEN}}
+
         touch spoke1.tf
         printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
 
