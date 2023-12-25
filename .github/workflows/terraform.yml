@@ -93,7 +93,12 @@ jobs:
        
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
+        cat .git/config
+
         git remote set-url origin "https://coder-chris-git:${{ secrets.REPO_TOKEN}}@github.com/coder-chris-git/terraform.git"
+                cat .git/config
+        cat .git/config
+
         git status
     - name: stage changed files
       run: git add .
