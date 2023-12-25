@@ -96,8 +96,8 @@ jobs:
     - name: Create file
       run: |
 
-        touch spoke.tf
-        printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke.tf
+        touch spoke1.tf
+        printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
 
     - name: check for changes
       run: |
