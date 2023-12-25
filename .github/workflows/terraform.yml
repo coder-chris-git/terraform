@@ -95,11 +95,15 @@ jobs:
 
     - name: Create file
       run: |
+
         touch spoke.tf
         printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke.tf
 
     - name: check for changes
-      run: git status
+      run: |
+        git config --global user.email "cdav49719@gmail.com"
+        git config --global user.name "coder-chris-git"
+        git status
     - name: stage changed files
       run: git add .
     - name: commit changed files
