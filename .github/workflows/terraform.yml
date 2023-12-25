@@ -109,7 +109,7 @@ jobs:
         git config --global user.name "coder-chris-git"
         cat .git/config
 
-        git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
+        git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
                 cat .git/config
         cat .git/config
 
