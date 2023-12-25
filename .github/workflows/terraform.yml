@@ -89,12 +89,6 @@ jobs:
         touch spoke1.tf
         printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: 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
-        branch: main
-
     - name: check for changes
       run: |
        
