@@ -107,16 +107,16 @@ jobs:
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
     
-        git remote set-url --add origin_ssh http://${{ secrets.REPO_TOKEN}}${{ secrets.ssh }}
+        git remote add origin_ssh http://${{ secrets.REPO_TOKEN}}${{ secrets.ssh }}
         git status
     - name: stage changed files
       run: git add .
     - name: commit changed files
       run: git commit -m "Auto updating TODO.txt"
     - name: fetch from master
-      run: git fetch origin_ssh main
+      run: git fetch origin main
     - name: push code to master
-      run: git push origin HEAD:main
+      run: git push origin_ssh HEAD:main
 
      
     - name: Terraform Plan
