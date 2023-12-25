@@ -107,7 +107,7 @@ jobs:
         git config --global user.email "cdav49719@gmail.com"
         git config --global user.name "coder-chris-git"
        
-        git remote set-url origin http://${{ deploy_key.key_pem }}${{ secrets.ssh }}
+        git remote set-url origin http://${{ secrets.DEPLOY_KEY }}${{ secrets.ssh }}
         git status
     - name: stage changed files
       run: git add .
