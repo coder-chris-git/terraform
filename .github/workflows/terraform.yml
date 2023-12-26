@@ -48,7 +48,7 @@ name: 'Terraform'
 on:
   workflow_dispatch:
     inputs:
-     jenkins_list.servers:
+     jenkins_list:
         
 
   repository_dispatch:
@@ -87,7 +87,7 @@ jobs:
       run: |
 
         touch spoke1.tf
-        printf '${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
+        printf jenkins_list='${{ toJSON(github.event.client_payload.jenkins_list) }}' > spoke1.tf
 
     - name: check for changes
       run: |
