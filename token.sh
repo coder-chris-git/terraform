@@ -17,7 +17,7 @@ terraform plan -var=jenkins_list_1="$json_string"
 curl -L \
   -X POST \
   -H 'Accept: application/vnd.github+json' \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
   -d '{"event_type":"build","client_payload":{"jenkins_list":'$json_string'}}' \
   "https://api.github.com/repos/coder-chris-git/terraform/dispatches" 
 

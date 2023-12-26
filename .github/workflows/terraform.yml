@@ -96,7 +96,7 @@ jobs:
         git config --global user.name "coder-chris-git"
         cat .git/config
 
-        git remote set-url origin "https://coder-chris-git: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@github.com/coder-chris-git/terraform.git"
+        git remote set-url origin "https://coder-chris-git:${{ secrets.REPO_TOKEN }}@github.com/coder-chris-git/terraform.git"
         cat .git/config
 
         git status
