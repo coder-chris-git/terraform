@@ -1,4 +1,4 @@
-[
+jenkins_list=[
   {
     "jenkins_automation": [
       {
